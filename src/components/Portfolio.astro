@@ -1,0 +1,32 @@
+---
+const projects = [
+  { fill: 'pf1', pill: 'Residential', name: 'The Redwood House', type: 'Atherton, CA · Full Design', large: true },
+  { fill: 'pf2', pill: 'Wellness',    name: 'Skyline Retreat',   type: 'Palo Alto · Wellness Space' },
+  { fill: 'pf3', pill: 'Commercial', name: 'Restaurant in Pittsburg', type: 'Pittsburg · Restaurant' },
+  { fill: 'pf4', pill: 'Residential', name: 'Harbor Penthouse',  type: 'Menlo Park · Interior Styling' },
+  { fill: 'pf5', pill: 'Hospitality', name: 'The Fig Café',      type: 'Los Altos · Restaurant' },
+];
+---
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-h2">Projects we're<br /><em>proud of.</em></h2>
+    </div>
+    <a href="#" class="text-link">View all projects →</a>
+  </div>
+  <div class="portfolio-grid">
+    {projects.map((p) => (
+      <div class="portfolio-item">
+        <div class="portfolio-bg" style={p.large ? 'height:100%;min-height:500px;' : ''}>
+          <div class={`portfolio-fill ${p.fill}`}></div>
+        </div>
+        <div class="portfolio-pill">{p.pill}</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-proj-name">{p.name}</div>
+          <div class="portfolio-proj-type">{p.type}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

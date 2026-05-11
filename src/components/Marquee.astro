@@ -1,0 +1,17 @@
+---
+const items = [
+  'Residential Design',
+  'Commercial Spaces',
+  'Wellness Interiors',
+  'Full-Service Design',
+  'Space Planning',
+  'Bay Area · Silicon Valley',
+];
+---
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    {items.concat(items).map((item) => (
+      <div class="marquee-item">{item}<span class="marquee-dot"></span></div>
+    ))}
+  </div>
+</div>

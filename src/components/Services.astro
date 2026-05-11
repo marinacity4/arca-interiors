@@ -1,0 +1,29 @@
+---
+const services = [
+  { num: '01', name: 'Residential Design', desc: 'Full interior design for homes, apartments, and estates. Built around your rhythms, not a trend.' },
+  { num: '02', name: 'Commercial & Hospitality', desc: 'Offices, restaurants, boutique hotels, and wellness spaces designed to perform beautifully.' },
+  { num: '03', name: 'Space Planning', desc: 'We reimagine how your space flows — optimizing light, proportion, and function before a single material is chosen.' },
+  { num: '04', name: 'Concept & Styling', desc: 'A cohesive design concept, material palette, and styling guide you can build from.' },
+  { num: '05', name: 'Renovation Consulting', desc: 'We act as your design advocate — coordinating architects, contractors, and suppliers so the result matches the vision.' },
+  { num: '06', name: 'Wellness Interiors', desc: 'Biophilic design and restorative environments built for mental and physical wellbeing.' },
+];
+---
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-h2">Full-service design,<br />start to <em>finish.</em></h2>
+    </div>
+    <p class="services-desc">From the first conversation to the final cushion — we guide you through every decision, translating your life into space.</p>
+  </div>
+  <div class="services-grid">
+    {services.map((s) => (
+      <div class="service-card">
+        <div class="service-num">{s.num}</div>
+        <div class="service-name">{s.name}</div>
+        <p class="service-desc">{s.desc}</p>
+        <div class="service-arrow">Explore</div>
+      </div>
+    ))}
+  </div>
+</section>
