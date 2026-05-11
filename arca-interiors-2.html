@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arca Interiors — Interior Design, Bay Area</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Cormorant:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --deep-bark: #2A1F15;
+    --walnut:     #3D2B1F;
+    --walnut-mid: #5a4030;
+    --walnut-lt:  #7a5a45;
+    --ivory:      #fbfefb;
+    --linen:      #efe5dc;
+    --pearl:      #e0d4c8;
+    --almond:     #d0b8ac;
+    --sky:        #6AAFC8;
+    --sky-lt:     #C4DFE9;
+    --sky-dk:     #4A90A8;
+    --stone:      #8a7a77;
+  }
+  /*
+  ========================================================
+  IMAGE GUIDE — Upload these files to your /images folder
+  ========================================================
+  images/hero.jpg         — Hero section right panel
+                            Recommended: 1400×1800px portrait
+                            Interior room, natural light, warm tones
+
+  images/about.jpg        — About section left panel
+                            Recommended: 900×1100px portrait
+                            Studio photo or a finished room
+
+  images/project-1.jpg   — Portfolio: The Redwood House (LARGE, featured)
+                            Recommended: 1200×1500px portrait
+
+  images/project-2.jpg   — Portfolio: Skyline Retreat
+                            Recommended: 800×600px landscape
+
+  images/project-3.jpg   — Portfolio: Harbor Penthouse
+                            Recommended: 800×600px landscape
+
+  images/project-4.jpg   — Portfolio: Cedar & Light
+                            Recommended: 800×600px landscape
+
+  images/project-5.jpg   — Portfolio: The Linen House
+                            Recommended: 800×600px landscape
+
+  images/commercial-1.jpg — Commercial: Lumen Office (LARGE, featured)
+  images/commercial-2.jpg — Commercial: The Fig Café
+  images/commercial-3.jpg — Commercial: Forma Studio
+  images/commercial-4.jpg — Commercial: Almond & Co.
+  images/commercial-5.jpg — Commercial: The Grove Hotel
+
+  TIPS:
+  - Use JPG format, quality 80–85% for best size/quality balance
+  - Compress with squoosh.app or tinyjpg.com before uploading
+  - Images show gradient fallback until photo is loaded
+  - background-position: center — crop happens automatically
+  ========================================================
+  */
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--ivory); color: var(--walnut); overflow-x: hidden; cursor: none; }
+  .cursor { width: 10px; height: 10px; background: var(--walnut); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s ease, height 0.3s ease; }
+  .cursor.grow { width: 36px; height: 36px; background: rgba(61,43,31,0.15); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem 3.5rem; background: rgba(251,254,251,0.92); backdrop-filter: blur(16px); border-bottom: 0.5px solid rgba(208,184,172,0.3); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 400; letter-spacing: 0.06em; color: var(--walnut); text-decoration: none; }
+  .nav-logo em { font-style: italic; color: var(--sky-dk); }
+  .nav-links { display: flex; gap: 2.8rem; list-style: none; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--walnut); }
+  .nav-btn { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; background: var(--walnut); color: var(--ivory); border: none; padding: 0.75rem 1.8rem; cursor: none; transition: background 0.3s, transform 0.2s; }
+  .nav-btn:hover { background: var(--sky-dk); transform: translateY(-1px); }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; padding-top: 80px; }
+  .hero-left { background: var(--linen); display: flex; flex-direction: column; justify-content: center; padding: 7rem 5rem 7rem 5.5rem; position: relative; overflow: hidden; }
+  .hero-left::after { content: ''; position: absolute; bottom: -120px; right: -120px; width: 360px; height: 360px; border-radius: 50%; background: var(--sky-lt); opacity: 0.38; }
+  .hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sky-dk); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.9rem; }
+  .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--sky-dk); }
+  .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 4.8vw, 5rem); font-weight: 400; line-height: 1.06; color: var(--walnut); margin-bottom: 1.2rem; }
+  .hero-h1 em { font-style: italic; color: var(--sky-dk); }
+  .hero-sub { font-family: 'Cormorant', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--stone); line-height: 1.65; max-width: 380px; margin-bottom: 3.5rem; }
+  .hero-ctas { display: flex; gap: 1.4rem; align-items: center; }
+  .btn-primary { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; background: var(--walnut); color: var(--ivory); border: none; padding: 1rem 2.4rem; text-decoration: none; display: inline-block; transition: background 0.3s, transform 0.2s; cursor: none; }
+  .btn-primary:hover { background: var(--sky-dk); transform: translateY(-2px); }
+  .btn-ghost { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--walnut); text-decoration: none; border-bottom: 1px solid var(--almond); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; cursor: none; }
+  .btn-ghost:hover { color: var(--sky-dk); border-color: var(--sky); }
+  .hero-right { position: relative; overflow: hidden; background: var(--walnut); }
+  .hero-photo { width: 100%; height: 100%; background-image: url("images/hero.jpg"); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 3rem; position: relative; }
+  /* PHOTO SLOT: hero.jpg — recommended size 1400×1800px, portrait orientation, interior shot */
+  .hero-photo-fallback { background: linear-gradient(160deg, rgba(61,43,31,0.5) 0%, rgba(61,43,31,0.1) 45%, transparent 70%), linear-gradient(to bottom right, var(--walnut-mid) 0%, #4A4540 40%, #5C6B72 80%, var(--sky-dk) 130%); }
+  .hero-corner { position: absolute; top: 3rem; right: 3rem; width: 60px; height: 60px; border-top: 1px solid rgba(200,222,233,0.3); border-right: 1px solid rgba(200,222,233,0.3); }
+  .hero-photo-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251,254,251,0.45); }
+  .marquee-wrap { background: var(--deep-bark); padding: 1.1rem 0; overflow: hidden; white-space: nowrap; }
+  .marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
+  .marquee-item { font-size: 0.67rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--almond); padding: 0 3rem; display: inline-flex; align-items: center; gap: 3rem; }
+  .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sky); flex-shrink: 0; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+  .about-visual { position: relative; overflow: hidden; min-height: 520px; }
+  /* PHOTO SLOT: images/about.jpg — Studio or portrait photo — 900×1100px recommended */
+  .about-bg { width: 100%; height: 100%; background-image: url("images/about.jpg"); background-size: cover; background-position: center; background-color: var(--sky); display: flex; align-items: center; justify-content: center; }
+  .about-ring { width: 300px; height: 300px; border-radius: 50%; border: 1px solid rgba(251,254,251,0.25); display: flex; align-items: center; justify-content: center; position: relative; }
+  .about-ring::before { content: ''; position: absolute; inset: -28px; border-radius: 50%; border: 1px solid rgba(251,254,251,0.12); }
+  .about-ring-text { font-family: 'Cormorant', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: rgba(251,254,251,0.92); text-align: center; line-height: 1.6; padding: 2.5rem; }
+  .about-stat { position: absolute; bottom: 2.5rem; left: 2.5rem; background: rgba(251,254,251,0.96); padding: 1.2rem 1.8rem; }
+  .about-stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 400; color: var(--walnut); line-height: 1; }
+  .about-stat-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); margin-top: 0.3rem; }
+  .about-text { background: var(--ivory); padding: 6rem 5rem; display: flex; flex-direction: column; justify-content: center; }
+  .section-label { font-size: 0.67rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sky-dk); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-label::before { content: ''; width: 22px; height: 1px; background: var(--sky-dk); }
+  .section-h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 2.8vw, 2.8rem); font-weight: 400; line-height: 1.12; color: var(--walnut); margin-bottom: 1.8rem; }
+  .section-h2 em { font-style: italic; color: var(--sky-dk); }
+  .body-p { font-size: 0.95rem; font-weight: 300; line-height: 1.9; color: var(--stone); margin-bottom: 1.2rem; max-width: 420px; }
+  .about-values { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
+  .about-val-num { font-family: 'Cormorant', serif; font-size: 2rem; font-style: italic; color: var(--sky); line-height: 1; margin-bottom: 0.4rem; }
+  .about-val-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); }
+  .services { background: var(--linen); padding: 8rem 5.5rem; }
+  .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 5rem; align-items: end; }
+  .services-desc { font-size: 0.95rem; font-weight: 300; line-height: 1.85; color: var(--stone); max-width: 380px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--pearl); }
+  .service-card { background: var(--linen); padding: 3rem 2.5rem; position: relative; overflow: hidden; transition: background 0.4s; }
+  .service-card:hover { background: var(--ivory); }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--sky); transition: width 0.45s ease; }
+  .service-card:hover::after { width: 100%; }
+  .service-num { font-family: 'Cormorant', serif; font-size: 3.5rem; font-style: italic; font-weight: 300; color: var(--pearl); line-height: 1; margin-bottom: 1.5rem; }
+  .service-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--walnut); margin-bottom: 1rem; }
+  .service-desc { font-size: 0.87rem; font-weight: 300; line-height: 1.75; color: var(--stone); }
+  .service-arrow { margin-top: 1.8rem; font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky-dk); display: flex; align-items: center; gap: 0.5rem; opacity: 0; transition: opacity 0.3s; cursor: none; }
+  .service-arrow::after { content: '→'; }
+  .service-card:hover .service-arrow { opacity: 1; }
+  .portfolio { padding: 8rem 5.5rem; background: var(--ivory); }
+  .portfolio-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 4rem; }
+  .text-link { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; border-bottom: 1px solid var(--almond); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; cursor: none; }
+  .text-link:hover { color: var(--sky-dk); border-color: var(--sky); }
+  .portfolio-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; }
+  .portfolio-item { position: relative; overflow: hidden; background: var(--pearl); cursor: none; }
+  .portfolio-item:first-child { grid-row: 1 / 3; }
+  .portfolio-bg { width: 100%; padding-top: 75%; position: relative; transition: transform 0.6s ease; }
+  .portfolio-item:first-child .portfolio-bg { padding-top: 0; height: 100%; min-height: 500px; }
+  .portfolio-item:hover .portfolio-bg { transform: scale(1.04); }
+  .portfolio-fill { position: absolute; inset: 0; }
+  /* PHOTO SLOT: images/project-1.jpg — The Redwood House — 1200×1500px recommended */
+  /* PHOTO SLOT: images/project-1.jpg — The Redwood House (Residential featured) — 1200×1500px */
+  .pf1 { background-image: url("images/project-1.jpg"); background-size: cover; background-position: center; background-color: var(--walnut); }
+  /* PHOTO SLOT: images/project-2.jpg — Skyline Retreat — 800×600px recommended */
+  .pf2 { background-image: url("images/project-2.jpg"); background-size: cover; background-position: center; background-color: var(--sky); }
+  /* PHOTO SLOT: images/project-3.jpg — Harbor Penthouse — 800×600px recommended */
+  .pf3 { background-image: url("images/project-3.jpg"); background-size: cover; background-position: center; background-color: var(--almond); }
+  /* PHOTO SLOT: images/project-4.jpg — Cedar & Light — 800×600px recommended */
+  .pf4 { background-image: url("images/project-4.jpg"); background-size: cover; background-position: center; background-color: var(--sky-dk); }
+  /* PHOTO SLOT: images/project-5.jpg — The Linen House — 800×600px recommended */
+  .pf5 { background-image: url("images/project-5.jpg"); background-size: cover; background-position: center; background-color: var(--linen); }
+  .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61,43,31,0.8) 0%, transparent 55%); opacity: 0; transition: opacity 0.4s; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+  .portfolio-proj-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ivory); margin-bottom: 0.3rem; }
+  .portfolio-proj-type { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky-lt); }
+  .portfolio-pill { position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(251,254,251,0.92); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); padding: 0.3rem 0.8rem; }
+  .process { background: var(--deep-bark); padding: 8rem 5.5rem; position: relative; overflow: hidden; }
+  .process::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(93,169,233,0.06); }
+  .process-label { font-size: 0.67rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.8rem; }
+  .process-label::before { content: ''; width: 22px; height: 1px; background: var(--sky); }
+  .process-h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 2.8vw, 2.8rem); font-weight: 400; color: var(--linen); margin-bottom: 5rem; }
+  .process-h2 em { font-style: italic; color: var(--sky); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 1.8rem; left: 0; right: 0; height: 1px; background: rgba(208,184,172,0.15); }
+  .process-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--sky); margin-bottom: 2.5rem; position: relative; z-index: 1; }
+  .process-step-num { font-family: 'Cormorant', serif; font-size: 0.9rem; font-style: italic; color: var(--sky); margin-bottom: 0.7rem; }
+  .process-step-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--linen); margin-bottom: 0.8rem; }
+  .process-step-desc { font-size: 0.84rem; font-weight: 300; line-height: 1.75; color: rgba(208,184,172,0.65); }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+  .contact-left { background: var(--sky); padding: 7rem 5rem; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+  .contact-left::after { content: ''; position: absolute; bottom: -70px; right: -70px; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(251,254,251,0.18); }
+  .contact-tag { font-size: 0.67rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(251,254,251,0.6); margin-bottom: 1.5rem; }
+  .contact-h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; line-height: 1.1; color: var(--ivory); margin-bottom: 1.5rem; }
+  .contact-h2 em { font-style: italic; }
+  .contact-sub { font-family: 'Cormorant', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: rgba(251,254,251,0.8); line-height: 1.65; margin-bottom: 3rem; max-width: 340px; }
+  .contact-info { display: flex; flex-direction: column; gap: 0.85rem; }
+  .contact-info-item { font-size: 0.85rem; font-weight: 300; color: rgba(251,254,251,0.85); display: flex; gap: 1rem; align-items: center; }
+  .contact-info-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(251,254,251,0.5); min-width: 60px; }
+  .contact-form { background: var(--ivory); padding: 7rem 5rem; display: flex; flex-direction: column; justify-content: center; }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--walnut); margin-bottom: 2.5rem; }
+  .form-row { margin-bottom: 1.5rem; }
+  .form-label { display: block; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; }
+  .form-input, .form-select, .form-textarea { width: 100%; font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300; color: var(--walnut); background: transparent; border: none; border-bottom: 1px solid var(--almond); padding: 0.7rem 0; outline: none; transition: border-color 0.3s; -webkit-appearance: none; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--sky); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--almond); }
+  .form-textarea { resize: none; min-height: 90px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .form-submit { margin-top: 2rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--walnut); color: var(--ivory); border: none; padding: 1.1rem 3rem; cursor: none; width: 100%; transition: background 0.3s, transform 0.2s; }
+  .form-submit:hover { background: var(--sky-dk); transform: translateY(-2px); }
+  footer { background: var(--deep-bark); padding: 5rem 5.5rem 3rem; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--linen); letter-spacing: 0.06em; margin-bottom: 1rem; display: block; }
+  .footer-logo em { font-style: italic; color: var(--sky); }
+  .footer-tagline { font-family: 'Cormorant', serif; font-size: 1rem; font-style: italic; font-weight: 300; color: var(--stone); line-height: 1.55; max-width: 240px; }
+  .footer-col-title { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 1.5rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer-links a { font-size: 0.84rem; font-weight: 300; color: rgba(239,229,220,0.45); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--sky); }
+  .footer-bottom { border-top: 1px solid rgba(138,122,119,0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 0.7rem; font-weight: 300; color: rgba(138,122,119,0.45); letter-spacing: 0.08em; }
+  .footer-social { display: flex; gap: 1.5rem; }
+  .footer-social a { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(138,122,119,0.45); text-decoration: none; transition: color 0.3s; }
+  .footer-social a:hover { color: var(--sky); }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.22s; }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="#" class="nav-logo">Arca<em>Interiors</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Consultation</button>
+</nav>
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">San Francisco Bay Area Design Firm</div>
+    <h1 class="hero-h1">Spaces that<br>let you <em>live</em><br>fully.</h1>
+    <p class="hero-sub">We design interiors around how you want to feel — connected, restored, and at home in your own life.</p>
+    <div class="hero-ctas">
+      <a href="#portfolio" class="btn-primary">View Our Work</a>
+      <a href="#contact" class="btn-ghost">Start a project</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo">
+      <div class="hero-corner"></div>
+      <span class="hero-photo-label">Atherton Residence · 2024</span>
+    </div>
+  </div>
+</section>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Residential Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Commercial Spaces<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Wellness Interiors<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Full-Service Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Space Planning<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Bay Area · Silicon Valley<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Residential Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Commercial Spaces<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Wellness Interiors<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Full-Service Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Space Planning<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Bay Area · Silicon Valley<span class="marquee-dot"></span></div>
+  </div>
+</div>
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-bg">
+      <div class="about-ring">
+        <p class="about-ring-text">"A home should tell<br>the story of who<br>you are."</p>
+      </div>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="section-h2">Design is <em>not</em><br>decoration.</h2>
+    <p class="body-p">Arca Interiors was founded on a simple belief: your environment shapes how you feel, how you connect, and how you rest. We design spaces that work for the way you actually live.</p>
+    <p class="body-p">We bring together architectural precision, natural materiality, and deep listening — blending California's effortless warmth with considered modern design.</p>
+    <div class="about-values">
+      <div><div class="about-val-num">01</div><div class="about-val-label">Human-centered</div></div>
+      <div><div class="about-val-num">02</div><div class="about-val-label">Wellness-driven</div></div>
+      <div><div class="about-val-num">03</div><div class="about-val-label">Timeless craft</div></div>
+    </div>
+  </div>
+</section>
+<section class="services" id="services">
+  <div class="services-header">
+    <div><div class="section-label">What We Do</div><h2 class="section-h2">Full-service design,<br>start to <em>finish.</em></h2></div>
+    <p class="services-desc">From the first conversation to the final cushion — we guide you through every decision, translating your life into space.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-num">01</div><div class="service-name">Residential Design</div><p class="service-desc">Full interior design for homes, apartments, and estates. Built around your rhythms, not a trend.</p><div class="service-arrow">Explore</div></div>
+    <div class="service-card"><div class="service-num">02</div><div class="service-name">Commercial & Hospitality</div><p class="service-desc">Offices, restaurants, boutique hotels, and wellness spaces designed to perform beautifully.</p><div class="service-arrow">Explore</div></div>
+    <div class="service-card"><div class="service-num">03</div><div class="service-name">Space Planning</div><p class="service-desc">We reimagine how your space flows — optimizing light, proportion, and function before a single material is chosen.</p><div class="service-arrow">Explore</div></div>
+    <div class="service-card"><div class="service-num">04</div><div class="service-name">Concept & Styling</div><p class="service-desc">A cohesive design concept, material palette, and styling guide you can build from.</p><div class="service-arrow">Explore</div></div>
+    <div class="service-card"><div class="service-num">05</div><div class="service-name">Renovation Consulting</div><p class="service-desc">We act as your design advocate — coordinating architects, contractors, and suppliers so the result matches the vision.</p><div class="service-arrow">Explore</div></div>
+    <div class="service-card"><div class="service-num">06</div><div class="service-name">Wellness Interiors</div><p class="service-desc">Biophilic design and restorative environments built for mental and physical wellbeing.</p><div class="service-arrow">Explore</div></div>
+  </div>
+</section>
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div><div class="section-label">Selected Work</div><h2 class="section-h2">Projects we're<br><em>proud of.</em></h2></div>
+  </div>
+  <div class="portfolio-grid-3">
+    <div class="portfolio-item">
+      <div class="portfolio-bg" style="height:100%;min-height:520px;"><div class="portfolio-fill pf1"></div></div>
+      <div class="portfolio-pill">Hospitality</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-proj-name">Restaurant in Pittsburgh</div>
+        <div class="portfolio-proj-type">Pittsburgh, PA · Hospitality</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg" style="height:100%;min-height:520px;"><div class="portfolio-fill pf2"></div></div>
+      <div class="portfolio-pill">Commercial</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-proj-name">Office in Mountain View</div>
+        <div class="portfolio-proj-type">Mountain View, CA · Commercial Office</div>
+      </div>
+    </div>
+    <div class="portfolio-item portfolio-coming-soon">
+      <div class="portfolio-bg" style="height:100%;min-height:520px;"><div class="portfolio-fill pf3"></div></div>
+      <div class="portfolio-pill">Residential</div>
+      <div class="portfolio-overlay portfolio-overlay-visible">
+        <div class="portfolio-coming-label">Coming Soon</div>
+        <div class="portfolio-proj-name">House in Palo Alto</div>
+        <div class="portfolio-proj-type">Palo Alto, CA · Residential</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="process" id="process">
+  <div class="process-label">How We Work</div>
+  <h2 class="process-h2">A process as <em>thoughtful</em><br>as the result.</h2>
+  <div class="process-steps">
+    <div class="process-step"><div class="process-dot"></div><div class="process-step-num">Step 01</div><div class="process-step-name">Discovery</div><p class="process-step-desc">We start by listening — deeply. We explore how you live, what you need, and how you want to feel in each room.</p></div>
+    <div class="process-step"><div class="process-dot"></div><div class="process-step-num">Step 02</div><div class="process-step-name">Concept Design</div><p class="process-step-desc">Space plans, mood boards, material palettes. A clear visual direction before any decisions are locked in.</p></div>
+    <div class="process-step"><div class="process-dot"></div><div class="process-step-num">Step 03</div><div class="process-step-name">Development</div><p class="process-step-desc">Detailed drawings, supplier coordination, procurement. We manage every moving part so you don't have to.</p></div>
+    <div class="process-step"><div class="process-dot"></div><div class="process-step-num">Step 04</div><div class="process-step-name">Delivery</div><p class="process-step-desc">Installation, styling, and a final reveal. A space that feels complete — and completely yours.</p></div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <div class="contact-tag">Let's Work Together</div>
+    <h2 class="contact-h2">Your project<br>starts with a<br><em>conversation.</em></h2>
+    <p class="contact-sub">Tell us about your space, your vision, and how you want to live in it. We'll take it from there.</p>
+    <div class="contact-info">
+      <div class="contact-info-item"><span class="contact-info-label">Studio</span>Menlo Park, California</div>
+      <div class="contact-info-item"><span class="contact-info-label">Email</span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1d9d4dddddef1d9d0c7d4dfc2c5c4d5d8de9fd2de">[email&#160;protected]</a></div>
+      <div class="contact-info-item"><span class="contact-info-label">Phone</span>+1 (650) 000-0000</div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <div class="form-title">Book a Free Consultation</div>
+    <div class="form-grid">
+      <div class="form-row"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Alexandra"></div>
+      <div class="form-row"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Chen"></div>
+    </div>
+    <div class="form-row"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="you@email.com"></div>
+    <div class="form-row"><label class="form-label">Project Type</label><select class="form-select form-input"><option value="">Select a service</option><option>Residential Design</option><option>Commercial / Hospitality</option><option>Wellness Interiors</option><option>Space Planning</option><option>Concept & Styling</option><option>Other</option></select></div>
+    <div class="form-row"><label class="form-label">Tell us about your project</label><textarea class="form-textarea" placeholder="Location, scope, timeline, and how you want to feel in the space..."></textarea></div>
+    <button class="form-submit">Send Inquiry</button>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div><span class="footer-logo">Arca<em>Interiors</em></span><p class="footer-tagline">Designing spaces that let you live, rest, and connect — fully.</p></div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#">Residential Design</a></li><li><a href="#">Commercial Spaces</a></li><li><a href="#">Wellness Interiors</a></li><li><a href="#">Space Planning</a></li><li><a href="#">Consulting</a></li></ul></div>
+    <div><div class="footer-col-title">Studio</div><ul class="footer-links"><li><a href="#">About</a></li><li><a href="#">Our Process</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Find Us</div><ul class="footer-links"><li><a href="#">Menlo Park, CA</a></li><li><a href="#">Serving Bay Area</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="fc9499909093bc949d8a99928f8889989593d29f93">[email&#160;protected]</span></a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Arca Interiors. All rights reserved.</span>
+    <div class="footer-social"><a href="#">Instagram</a><a href="#">Houzz</a><a href="#">LinkedIn</a></div>
+  </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .portfolio-item, .service-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.service-card, .process-step, .portfolio-item').forEach((el, i) => {
+    el.classList.add('reveal');
+    if (i % 3 === 1) el.classList.add('d1');
+    if (i % 3 === 2) el.classList.add('d2');
+    observer.observe(el);
+  });
+  document.querySelectorAll('a, button, .portfolio-item, .service-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+  });
+  const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:0.12});
+  document.querySelectorAll('.service-card, .process-step, .portfolio-item').forEach((el,i) => { el.classList.add('reveal'); if(i%3===1) el.classList.add('d1'); if(i%3===2) el.classList.add('d2'); obs.observe(el); });
+
+  // Portfolio tabs
+  document.querySelectorAll('.ptab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+ 
