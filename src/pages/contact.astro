@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/NavDark.astro';
-import Hero from '../components/Hero.astro';
-import Marquee from '../components/Marquee.astro';
+import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
-<Layout>
+<Layout title="Contact — Arca Interiors">
   <div class="cursor" id="cursor"></div>
   <Nav />
-  <Hero />
-  <Marquee />
+  <div style="padding-top: 80px;">
+    <Contact />
+  </div>
   <Footer />
 </Layout>
 
@@ -20,7 +20,7 @@ import '../styles/global.css';
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
   });
-  document.querySelectorAll('a, button, .service-card').forEach((el) => {
+  document.querySelectorAll('a, button').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
   });

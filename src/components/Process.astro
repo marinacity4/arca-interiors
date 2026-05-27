@@ -1,14 +1,30 @@
 ---
 const steps = [
-  { num: 'Step 01', name: 'Discovery',       desc: 'We start by listening — deeply. We explore how you live, what you need, and how you want to feel in each room.' },
-  { num: 'Step 02', name: 'Concept Design',  desc: 'Space plans, mood boards, material palettes. A clear visual direction before any decisions are locked in.' },
-  { num: 'Step 03', name: 'Development',     desc: 'Detailed drawings, supplier coordination, procurement. We manage every moving part so you don\'t have to.' },
-  { num: 'Step 04', name: 'Delivery',        desc: 'Installation, styling, and a final reveal. A space that feels complete — and completely yours.' },
+  {
+    num: 'Step 01',
+    name: 'Conversation',
+    desc: 'We start by listening — not to what you want the space to look like, but to how you want to feel in it. Life first, design second.',
+  },
+  {
+    num: 'Step 02',
+    name: 'Concept',
+    desc: 'Space plans, material palettes, atmosphere boards. A clear visual and emotional direction before any decisions are locked in.',
+  },
+  {
+    num: 'Step 03',
+    name: 'Development',
+    desc: 'Detailed drawings, custom elements, supplier coordination. We manage every layer so the result matches what you felt in the concept.',
+  },
+  {
+    num: 'Step 04',
+    name: 'Delivery',
+    desc: 'Installation, styling, and a final reveal. A space that feels complete — and completely yours.',
+  },
 ];
 ---
 <section class="process" id="process">
   <div class="process-label">How We Work</div>
-  <h2 class="process-h2">A process as <em>thoughtful</em><br />as the result.</h2>
+  <h2 class="process-h2">A process as <em>considered</em><br />as the result.</h2>
   <div class="process-steps">
     {steps.map((s) => (
       <div class="process-step">

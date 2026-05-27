@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/NavDark.astro';
-import Hero from '../components/Hero.astro';
-import Marquee from '../components/Marquee.astro';
+import Services from '../components/Services.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 ---
-<Layout>
+<Layout title="Services — Arca Interiors">
   <div class="cursor" id="cursor"></div>
   <Nav />
-  <Hero />
-  <Marquee />
+  <div style="padding-top: 80px;">
+    <Services />
+  </div>
   <Footer />
 </Layout>
 
@@ -23,5 +23,15 @@ import '../styles/global.css';
   document.querySelectorAll('a, button, .service-card').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+  });
+  const obs = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.service-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    if (i % 3 === 1) el.classList.add('d1');
+    if (i % 3 === 2) el.classList.add('d2');
+    obs.observe(el);
   });
 </script>

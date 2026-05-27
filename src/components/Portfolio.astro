@@ -1,32 +1,90 @@
 ---
-const projects = [
-  { fill: 'pf1', pill: 'Residential', name: 'The Redwood House', type: 'Atherton, CA · Full Design', large: true },
-  { fill: 'pf2', pill: 'Wellness',    name: 'Skyline Retreat',   type: 'Palo Alto · Wellness Space' },
-  { fill: 'pf3', pill: 'Commercial', name: 'Restaurant in Pittsburg', type: 'Pittsburg · Restaurant' },
-  { fill: 'pf4', pill: 'Residential', name: 'Harbor Penthouse',  type: 'Menlo Park · Interior Styling' },
-  { fill: 'pf5', pill: 'Hospitality', name: 'The Fig Café',      type: 'Los Altos · Restaurant' },
+const residential = [
+  { fill: 'pf1', name: 'The Redwood House',  location: 'Atherton, CA',  large: true },
+  { fill: 'pf4', name: 'Harbor Penthouse',   location: 'Menlo Park, CA' },
+  { fill: 'pf5', name: 'Skyline Retreat',    location: 'Palo Alto, CA' },
+  { src: '/images/Palo Alto.jpg', name: 'Palo Alto Residence', location: 'Palo Alto, CA', comingSoon: true },
+];
+
+const pittsburg = [
+  { src: '/images/Restaurant in Pittsburg 1.jpg', large: true },
+  { src: '/images/Restaurant in Pittsburg 2.jpg' },
+  { src: '/images/Restaurant in Pittsburg 3.jpg' },
+  { src: '/images/Restaurant in Pittsburg 4.jpg' },
+  { src: '/images/Restaurant in Pittsburg 5.jpg' },
+  { src: '/images/Restaurant in Pittsburg 6.jpg' },
+];
+
+const commercial = [
+  { fill: 'pf6', name: 'Menlo Park Studio',    location: 'Menlo Park, CA', large: true },
+  { fill: 'pf7', name: 'Silicon Valley Office', location: 'Palo Alto, CA' },
 ];
 ---
+
 <section class="portfolio" id="portfolio">
   <div class="portfolio-header">
-    <div>
-      <div class="section-label">Selected Work</div>
-      <h2 class="section-h2">Projects we're<br /><em>proud of.</em></h2>
-    </div>
+    <div class="section-label">Selected Work</div>
     <a href="#" class="text-link">View all projects →</a>
   </div>
-  <div class="portfolio-grid">
-    {projects.map((p) => (
-      <div class="portfolio-item">
-        <div class="portfolio-bg" style={p.large ? 'height:100%;min-height:500px;' : ''}>
-          <div class={`portfolio-fill ${p.fill}`}></div>
+
+  <!-- Residential -->
+  <div class="portfolio-category">
+    <div class="portfolio-cat-label">Residential</div>
+    <div class="portfolio-grid">
+      {residential.map((p) => (
+        <div class={`portfolio-item${p.large ? ' portfolio-item--large' : ''}${p.comingSoon ? ' portfolio-item--soon' : ''}`}>
+          <div class="portfolio-bg">
+            {p.src
+              ? <img src={p.src} alt={p.name} class="portfolio-photo" />
+              : <div class={`portfolio-fill ${p.fill}`}></div>
+            }
+          </div>
+          {p.comingSoon
+            ? <div class="portfolio-soon-badge">In Progress</div>
+            : <div class="portfolio-overlay">
+                <div class="portfolio-proj-name">{p.name}</div>
+                <div class="portfolio-proj-type">{p.location}</div>
+              </div>
+          }
         </div>
-        <div class="portfolio-pill">{p.pill}</div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-proj-name">{p.name}</div>
-          <div class="portfolio-proj-type">{p.type}</div>
-        </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
+
+  <!-- Hospitality — Restaurant in Pittsburg -->
+  <div class="portfolio-category">
+    <div class="portfolio-cat-label">Hospitality</div>
+    <div class="portfolio-cat-title">
+      <span>Restaurant in Pittsburg</span>
+      <span class="portfolio-cat-sub">Pittsburg, CA &nbsp;·&nbsp; Restaurant</span>
+    </div>
+    <div class="portfolio-grid portfolio-grid--photos">
+      {pittsburg.map((p) => (
+        <div class={`portfolio-item${p.large ? ' portfolio-item--large' : ''}`}>
+          <div class="portfolio-bg">
+            <img src={p.src} alt="Restaurant in Pittsburg" class="portfolio-photo" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Commercial -->
+  <div class="portfolio-category">
+    <div class="portfolio-cat-label">Commercial</div>
+    <div class="portfolio-grid">
+      {commercial.map((p) => (
+        <div class={`portfolio-item${p.large ? ' portfolio-item--large' : ''}`}>
+          <div class="portfolio-bg">
+            <div class={`portfolio-fill ${p.fill}`}></div>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-proj-name">{p.name}</div>
+            <div class="portfolio-proj-type">{p.location}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
 </section>

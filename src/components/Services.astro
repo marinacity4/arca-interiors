@@ -1,20 +1,47 @@
 ---
 const services = [
-  { num: '01', name: 'Residential Design', desc: 'Full interior design for homes, apartments, and estates. Built around your rhythms, not a trend.' },
-  { num: '02', name: 'Commercial & Hospitality', desc: 'Offices, restaurants, boutique hotels, and wellness spaces designed to perform beautifully.' },
-  { num: '03', name: 'Space Planning', desc: 'We reimagine how your space flows — optimizing light, proportion, and function before a single material is chosen.' },
-  { num: '04', name: 'Concept & Styling', desc: 'A cohesive design concept, material palette, and styling guide you can build from.' },
-  { num: '05', name: 'Renovation Consulting', desc: 'We act as your design advocate — coordinating architects, contractors, and suppliers so the result matches the vision.' },
-  { num: '06', name: 'Wellness Interiors', desc: 'Biophilic design and restorative environments built for mental and physical wellbeing.' },
+  {
+    num: '01',
+    name: 'Interior Design',
+    desc: 'Full-scope environments built around how you want to feel. Every proportion, every material, every detail — considered.',
+  },
+  {
+    num: '02',
+    name: 'Furniture Design',
+    desc: 'Custom pieces made for your space and your life. Not mass-produced. Made to matter.',
+  },
+  {
+    num: '03',
+    name: 'Project Management',
+    desc: 'Every contractor, timeline, and decision coordinated — so the result stays true to the vision, and to your peace of mind.',
+  },
+  {
+    num: '04',
+    name: 'Procurement',
+    desc: 'Access to the best trade resources, sourced with intention. We handle the research, the negotiation, the logistics.',
+  },
+  {
+    num: '05',
+    name: 'Curation',
+    desc: 'Art, objects, and materials chosen with a trained eye. Each piece adds depth without adding noise.',
+  },
+  {
+    num: '06',
+    name: 'Styling',
+    desc: 'The final layer — the one that makes a room breathe. We style to reveal the soul of a space, not to decorate over it.',
+  },
 ];
 ---
 <section class="services" id="services">
   <div class="services-header">
     <div>
       <div class="section-label">What We Do</div>
-      <h2 class="section-h2">Full-service design,<br />start to <em>finish.</em></h2>
+      <h2 class="section-h2">Everything a space<br />needs to feel <em>right.</em></h2>
     </div>
-    <p class="services-desc">From the first conversation to the final cushion — we guide you through every decision, translating your life into space.</p>
+    <p class="services-desc">
+      From the first conversation to the final object — we make decisions together,
+      translating the way you live into a space that feels entirely yours.
+    </p>
   </div>
   <div class="services-grid">
     {services.map((s) => (
