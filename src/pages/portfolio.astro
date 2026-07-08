@@ -1,37 +1,59 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/NavDark.astro';
-import Portfolio from '../components/Portfolio.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const projects = [
+  { idx: "01", name: "Restaurant in Pittsburgh", cat: "Hospitality", loc: "Pittsburgh, PA", note: "", img: "/images/project-1.jpg" },
+  { idx: "02", name: "Office in Mountain View", cat: "Commercial", loc: "Mountain View, CA", note: "", img: "/images/project-2.jpg" },
+  { idx: "03", name: "House in Palo Alto", cat: "Residential", loc: "Palo Alto, CA", note: "In progress", img: "/images/project-3.jpg" },
+];
 ---
 <Layout title="Portfolio — Arca Interiors">
-  <div class="cursor" id="cursor"></div>
-  <Nav />
-  <div style="padding-top: 80px;">
-    <Portfolio />
-  </div>
+  <Nav active="Portfolio" />
+
+  <section class="port-head">
+    <div class="eyebrow">Selected Work</div>
+  </section>
+
+  <section class="port-list">
+    {projects.map((p) => (
+      <article class="proj reveal">
+        <div class="proj-img img-ph" data-label={`${p.name} — light, airy`} data-link></div>
+        <div class="proj-meta">
+          <span class="index">{p.idx}</span>
+          <h2 class="proj-name">{p.name}</h2>
+          <span class="proj-cat">{p.cat} · {p.loc}{p.note && <> — <em>{p.note}</em></>}</span>
+        </div>
+      </article>
+    ))}
+  </section>
+
   <Footer />
 </Layout>
 
-<script>
-  const cursor = document.getElementById('cursor') as HTMLElement;
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-  document.querySelectorAll('a, button, .portfolio-item').forEach((el) => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
-  });
-  const obs = new IntersectionObserver(
-    (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.12 }
-  );
-  document.querySelectorAll('.portfolio-item').forEach((el, i) => {
-    el.classList.add('reveal');
-    if (i % 3 === 1) el.classList.add('d1');
-    if (i % 3 === 2) el.classList.add('d2');
-    obs.observe(el);
-  });
-</script>
+<style>
+  .port-head { padding: 4rem var(--pad-x) 5rem; max-width: 900px; }
+  .port-head .eyebrow { margin-bottom: 2.2rem; }
+
+  .port-list { padding: 0 var(--pad-x) 6rem; display: flex; flex-direction: column; gap: 5rem; }
+  .proj { display: flex; flex-direction: column; gap: 1.5rem; }
+  .proj-img { width: 100%; aspect-ratio: 3/2; }
+  .proj:first-child .proj-img { aspect-ratio: 16/9; }
+  .proj-meta {
+    display: grid; grid-template-columns: 50px 1fr auto;
+    gap: 2rem; align-items: baseline;
+  }
+  .proj-name {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 400; color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .proj-cat { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); }
+  .proj-cat em { font-style: normal; color: var(--blue); }
+
+  @media (max-width: 640px) {
+    .proj-meta { grid-template-columns: 36px 1fr; }
+    .proj-cat { grid-column: 2; margin-top: 0.4rem; }
+  }
+</style>

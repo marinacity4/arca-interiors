@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+<Layout title="Studio — Arca Interiors">
+  <Nav active="Studio" />
+
+  <!-- HEADER -->
+  <section class="studio-head">
+    <div class="eyebrow">The Studio</div>
+    <h1 class="headline">Arca is two<br>ways of <em>seeing.</em></h1>
+  </section>
+
+  <!-- THE DUET -->
+  <section class="block reveal">
+    <div class="rule"></div>
+    <div class="duet-photo">
+      <img src="/images/duet.jpg" alt="Irina and Marina, founders of Arca Interiors" loading="lazy" />
+    </div>
+    <div class="block-grid">
+      <div class="block-label"><span class="index">i</span> The Duet</div>
+      <div class="block-body">
+        <p class="para">Arca is two of us, and two ways of seeing.</p>
+        <p class="para">Irina is the designer. She shapes the concept and everything you end up seeing and feeling in a space — form, proportion, colour, the way it all holds together. Trained as an architect in Russia and working in interiors for fifteen years, she moves between styles without losing her eye, and speaks the same language as architects and builders.</p>
+        <p class="para">Marina runs the studio — sourcing, budgets, timelines, the parts that have to hold together for the design to happen at all. Her background is in economics and marketing, but design was always the thing she came back to.</p>
+        <p class="para">Irina makes the call on design. We think it through together — each of us hearing something different in what a client says.</p>
+        <p class="para accent">Instinct and intention, in balance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="block reveal">
+    <div class="rule"></div>
+    <div class="block-grid">
+      <div class="block-label"><span class="index">ii</span> Philosophy</div>
+      <div class="block-body">
+        <p class="para">Every space is its own small world — shaped by what you value, how you want to feel, the moods and memories you want around them. We're interested in that world. Before we think about furniture, we want to understand yours — and then shape a space that feels somehow yours, and no one else's.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="block reveal">
+    <div class="rule"></div>
+    <div class="block-grid">
+      <div class="block-label"><span class="index">iii</span> How We Work</div>
+      <div class="block-body">
+        <p class="para">Good spaces aren't rushed into being. We don't start with furniture — we start with you: how you live, how you want to feel, what your world is already made of. That part is slow, and we like it that way. Only once we understand it do we begin to shape the space. First we listen, then we make.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="block reveal services">
+    <div class="rule"></div>
+    <div class="block-grid">
+      <div class="block-label"><span class="index">iv</span> What We Do</div>
+      <div class="block-body">
+        <div class="svc">
+          <h3 class="svc-name">Full Design</h3>
+          <p class="svc-desc">Complete spaces, shaped from the ground up — residential, commercial, and hospitality.</p>
+        </div>
+        <div class="svc">
+          <h3 class="svc-name">Remodeling</h3>
+          <p class="svc-desc">Reworking what's already there, so the space finally fits the life inside it.</p>
+        </div>
+        <div class="svc">
+          <h3 class="svc-name">Decorating & Art Styling</h3>
+          <p class="svc-desc">We help you choose the pieces that belong.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .studio-head { padding: 4rem var(--pad-x) 5rem; max-width: 900px; }
+  .studio-head .eyebrow { margin-bottom: 2.2rem; }
+
+  .block { padding: 0 var(--pad-x); margin-bottom: 5rem; }
+  .block .rule { margin-bottom: 3rem; }
+
+  .duet-photo { margin-bottom: 3rem; }
+  .duet-photo img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+  .block-grid { display: grid; grid-template-columns: 260px 1fr; gap: 3rem; align-items: start; }
+  .block-label {
+    font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--stone); display: flex; align-items: baseline; gap: 0.8rem;
+    padding-top: 0.4rem;
+  }
+  .block-body { max-width: 620px; }
+  .para {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.45;
+    font-weight: 400; color: var(--ink); margin-bottom: 1.4rem;
+  }
+  .para:last-child { margin-bottom: 0; }
+  .para em { font-style: italic; }
+  .para.accent { color: var(--blue); }
+
+  .services .block-body { display: flex; flex-direction: column; gap: 2.5rem; }
+  .svc-name {
+    font-family: 'Libre Caslon Text', serif; font-size: 1.5rem;
+    font-weight: 400; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .svc-desc { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); font-weight: 300; max-width: 460px; }
+
+  @media (max-width: 760px) {
+    .block-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .block-label { padding-top: 0; }
+  }
+</style>

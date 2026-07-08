@@ -1,11 +1,16 @@
 ---
+const { active = "" } = Astro.props;
+const links = [
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Studio", href: "/studio" },
+  { name: "Contact", href: "/contact" },
+];
 ---
-<nav>
-  <a href="/" class="nav-logo">Arca<em>Interiors</em></a>
+<nav class="nav">
+  <a href="/" class="logo">ARCA INTERIORS</a>
   <ul class="nav-links">
-    <li><a href="/about">About</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/contact">Contact</a></li>
+    {links.map((l) => (
+      <li><a href={l.href} class={active === l.name ? "active" : ""}>{l.name}</a></li>
+    ))}
   </ul>
 </nav>

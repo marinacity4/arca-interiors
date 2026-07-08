@@ -1,45 +1,42 @@
 ---
 ---
-<footer>
-  <div class="footer-top">
-    <div>
-      <span class="footer-logo">Arca<em>Interiors</em></span>
-      <p class="footer-tagline">Spaces that change<br />how you feel.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="/services">Interior Design</a></li>
-        <li><a href="/services">Furniture Design</a></li>
-        <li><a href="/services">Curation &amp; Styling</a></li>
-        <li><a href="/services">Project Management</a></li>
-        <li><a href="/services">Procurement</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Studio</div>
-      <ul class="footer-links">
-        <li><a href="/about">About</a></li>
-        <li><a href="/about">Our Process</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Find Us</div>
-      <ul class="footer-links">
-        <li><a href="#">Menlo Park, CA</a></li>
-        <li><a href="#">Serving Bay Area</a></li>
-        <li><a href="#">hello@arcainteriors.com</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Arca Interiors. All rights reserved.</span>
-    <div class="footer-social">
-      <a href="#">Instagram</a>
-      <a href="#">Houzz</a>
-      <a href="#">LinkedIn</a>
-    </div>
+<footer class="dark-foot">
+  <a href="/" class="df-logo">ARCA INTERIORS</a>
+  <div class="df-right">
+    <a href="mailto:hello@arcainteriors.studio" class="df-link">hello@arcainteriors.studio</a>
+    <a href="https://instagram.com/arca.interiors" target="_blank" rel="noopener" class="df-link">Instagram</a>
+    <span class="df-copy">© 2026</span>
   </div>
 </footer>
+
+<style>
+  .dark-foot {
+    margin-top: auto;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.5rem var(--pad-x);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .df-logo {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.18em;
+    color: var(--paper); text-decoration: none;
+  }
+  .df-right { display: flex; align-items: center; gap: 2rem; }
+  .df-link {
+    font-size: 0.72rem; letter-spacing: 0.08em; text-decoration: none;
+    color: rgba(250,248,243,0.85); position: relative; padding-bottom: 3px;
+  }
+  .df-link::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--blue);
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .df-link:hover::after { width: 100%; }
+  .df-copy { font-size: 0.62rem; letter-spacing: 0.12em; color: rgba(250,248,243,0.4); }
+
+  @media (max-width: 640px) {
+    .dark-foot { flex-direction: column; gap: 1.2rem; align-items: flex-start; }
+    .df-right { gap: 1.3rem; flex-wrap: wrap; }
+  }
+</style>
