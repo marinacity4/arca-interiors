@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const gallery = [
+  "/images/pittsburgh/01.jpg",
+  "/images/pittsburgh/02.jpg",
+  "/images/pittsburgh/04.jpg",
+  "/images/pittsburgh/05.jpg",
+  "/images/pittsburgh/03.jpg",
+  "/images/pittsburgh/06.jpg",
+  "/images/pittsburgh/07.jpg",
+  "/images/pittsburgh/08.jpg",
+  "/images/pittsburgh/11.jpg",
+];
+---
+<Layout title="Restaurant in Pittsburgh — Arca Interiors">
+  <Nav active="Portfolio" />
+
+  <section class="proj-head">
+    <div class="eyebrow">Hospitality — Pittsburgh, PA</div>
+    <h1 class="headline">Restaurant in <em>Pittsburgh</em></h1>
+    <p class="lede">A steakhouse and wine room where warmth and drama meet — deep tones, brass, marble, and green velvet, built for long evenings and good company.</p>
+  </section>
+
+  <section class="gallery">
+    {gallery.map((src, i) => (
+      <div class={`shot reveal ${i === 0 ? "wide" : ""}`}>
+        <img src={src} alt="Restaurant in Pittsburgh" loading="lazy" />
+      </div>
+    ))}
+  </section>
+
+  <section class="proj-back">
+    <a href="/portfolio" class="back-link" data-link>← Back to work</a>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .proj-head { padding: 4rem var(--pad-x) 3.5rem; max-width: 820px; }
+  .proj-head .eyebrow { margin-bottom: 2rem; }
+  .proj-head .headline { margin-bottom: 1.6rem; }
+
+  .gallery { padding: 1rem var(--pad-x) 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .shot { overflow: hidden; }
+  .shot.wide { grid-column: 1 / -1; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 3/2; }
+  .shot.wide img { aspect-ratio: 16/9; }
+
+  .proj-back { padding: 2rem var(--pad-x) 5rem; }
+  .back-link {
+    font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; position: relative; padding-bottom: 5px;
+  }
+  .back-link::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--blue); transition: width 0.4s; }
+  .back-link:hover::after { width: 100%; }
+
+  @media (max-width: 640px) {
+    .gallery { grid-template-columns: 1fr; gap: 1rem; }
+  }
+</style>

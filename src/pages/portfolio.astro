@@ -4,9 +4,9 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
 const projects = [
-  { idx: "01", name: "Restaurant in Pittsburgh", cat: "Hospitality", loc: "Pittsburgh, PA", note: "", img: "/images/project-1.jpg" },
-  { idx: "02", name: "Office in Mountain View", cat: "Commercial", loc: "Mountain View, CA", note: "", img: "/images/project-2.jpg" },
-  { idx: "03", name: "House in Palo Alto", cat: "Residential", loc: "Palo Alto, CA", note: "In progress", img: "/images/project-3.jpg" },
+  { idx: "01", name: "Restaurant in Pittsburgh", cat: "Hospitality", loc: "Pittsburgh, PA", note: "", img: "/images/project-1.jpg", href: "/projects/restaurant-in-pittsburgh" },
+  { idx: "02", name: "Office in Mountain View", cat: "Commercial", loc: "Mountain View, CA", note: "", img: "", href: "" },
+  { idx: "03", name: "House in Palo Alto", cat: "Residential", loc: "Palo Alto, CA", note: "In progress", img: "", href: "" },
 ];
 ---
 <Layout title="Portfolio — Arca Interiors">
@@ -18,14 +18,25 @@ const projects = [
 
   <section class="port-list">
     {projects.map((p) => (
-      <article class="proj reveal">
-        <div class="proj-img img-ph" data-label={`${p.name} — light, airy`} data-link></div>
-        <div class="proj-meta">
-          <span class="index">{p.idx}</span>
-          <h2 class="proj-name">{p.name}</h2>
-          <span class="proj-cat">{p.cat} · {p.loc}{p.note && <> — <em>{p.note}</em></>}</span>
-        </div>
-      </article>
+      p.href ? (
+        <a class="proj reveal" href={p.href} data-link>
+          <div class="proj-img" style={`background-image:url('${p.img}')`}></div>
+          <div class="proj-meta">
+            <span class="index">{p.idx}</span>
+            <h2 class="proj-name">{p.name}</h2>
+            <span class="proj-cat">{p.cat} · {p.loc}{p.note && <> — <em>{p.note}</em></>}</span>
+          </div>
+        </a>
+      ) : (
+        <article class="proj reveal">
+          <div class="proj-img img-ph" data-label={`${p.name} — coming soon`}></div>
+          <div class="proj-meta">
+            <span class="index">{p.idx}</span>
+            <h2 class="proj-name">{p.name}</h2>
+            <span class="proj-cat">{p.cat} · {p.loc}{p.note && <> — <em>{p.note}</em></>}</span>
+          </div>
+        </article>
+      )
     ))}
   </section>
 
@@ -37,8 +48,14 @@ const projects = [
   .port-head .eyebrow { margin-bottom: 2.2rem; }
 
   .port-list { padding: 0 var(--pad-x) 6rem; display: flex; flex-direction: column; gap: 5rem; }
-  .proj { display: flex; flex-direction: column; gap: 1.5rem; }
-  .proj-img { width: 100%; aspect-ratio: 3/2; }
+  .proj { display: flex; flex-direction: column; gap: 1.5rem; text-decoration: none; }
+  .proj-img {
+    width: 100%; aspect-ratio: 3/2;
+    background-size: cover; background-position: center;
+    background-color: var(--sand);
+    transition: opacity 0.4s ease;
+  }
+  a.proj:hover .proj-img { opacity: 0.92; }
   .proj:first-child .proj-img { aspect-ratio: 16/9; }
   .proj-meta {
     display: grid; grid-template-columns: 50px 1fr auto;
