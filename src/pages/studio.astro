@@ -21,10 +21,10 @@ import Footer from "../components/Footer.astro";
     <div class="block-grid">
       <div class="block-label"><span class="index">i</span> The Duet</div>
       <div class="block-body">
-        <p class="para">Arca is two of us, and two ways of seeing.</p>
-        <p class="para">Irina is the designer. She shapes the concept and everything you end up seeing and feeling in a space — form, proportion, colour, the way it all holds together. Trained as an architect in Russia and working in interiors for fifteen years, she moves between styles without losing her eye, and speaks the same language as architects and builders.</p>
-        <p class="para">Marina runs the studio — sourcing, budgets, timelines, the parts that have to hold together for the design to happen at all. Her background is in economics and marketing, but design was always the thing she came back to.</p>
-        <p class="para">Irina makes the call on design. We think it through together — each of us hearing something different in what a client says.</p>
+        <p class="lead">Arca is two of us, and two ways of seeing.</p>
+        <p class="para">Irina moves first. With a formal education in architecture and fifteen years in interiors, she thinks in space, form, and instinct — and shapes everything you end up seeing and feeling. She speaks the same language as architects and builders.</p>
+        <p class="para">Marina moves deliberately. She listens, watches, and understands before anything is decided — and then holds the whole project together: sourcing, budgets, timelines, so the design can actually happen. Design has always been where she goes for beauty — the thing that fills her up.</p>
+        <p class="para">Irina makes the call on design. But we listen together — and between the two of us, nothing a client says gets lost. The work happens between us.</p>
         <p class="para accent">Instinct and intention, in balance.</p>
       </div>
     </div>
@@ -36,7 +36,8 @@ import Footer from "../components/Footer.astro";
     <div class="block-grid">
       <div class="block-label"><span class="index">ii</span> Philosophy</div>
       <div class="block-body">
-        <p class="para">Every space is its own small world — shaped by what you value, how you want to feel, the moods and memories you want around them. We're interested in that world. Before we think about furniture, we want to understand yours — and then shape a space that feels somehow yours, and no one else's.</p>
+        <p class="lead">Every space is its own small world.</p>
+        <p class="para">Shaped by what you value, how you want to feel, the moods and memories you want around you. We're interested in that world. Before we think about furniture, we want to understand yours — and then shape a space that feels somehow yours, and no one else's.</p>
       </div>
     </div>
   </section>
@@ -47,7 +48,9 @@ import Footer from "../components/Footer.astro";
     <div class="block-grid">
       <div class="block-label"><span class="index">iii</span> How We Work</div>
       <div class="block-body">
-        <p class="para">Good spaces aren't rushed into being. We don't start with furniture — we start with you: how you live, how you want to feel, what your world is already made of. That part is slow, and we like it that way. Only once we understand it do we begin to shape the space. First we listen, then we make.</p>
+        <p class="lead">Good spaces aren't rushed into being.</p>
+        <p class="para">We don't start with furniture — we start with you: how you live, how you want to feel, what your world is already made of. That part is slow, and we like it that way. Only once we understand it do we begin to shape the space.</p>
+        <p class="para accent">First we listen, then we make.</p>
       </div>
     </div>
   </section>
@@ -85,7 +88,7 @@ import Footer from "../components/Footer.astro";
   .block .rule { margin-bottom: 3rem; }
 
   .duet-photo { margin-bottom: 3rem; }
-  .duet-photo img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+  .duet-photo img { width: 100%; height: auto; display: block; aspect-ratio: 3/2; object-fit: cover; }
   .block-grid { display: grid; grid-template-columns: 260px 1fr; gap: 3rem; align-items: start; }
   .block-label {
     font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase;
@@ -93,21 +96,38 @@ import Footer from "../components/Footer.astro";
     padding-top: 0.4rem;
   }
   .block-body { max-width: 620px; }
-  .para {
+  /* lead statement — Caslon, large */
+  .lead {
     font-family: 'Libre Caslon Text', serif;
-    font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.45;
-    font-weight: 400; color: var(--ink); margin-bottom: 1.4rem;
+    font-size: clamp(1.5rem, 2.6vw, 2.05rem); line-height: 1.3;
+    font-weight: 400; color: var(--ink); margin-bottom: 2rem;
+    letter-spacing: -0.005em;
+  }
+  .lead em { font-style: italic; }
+  .lead:last-child { margin-bottom: 0; }
+
+  /* body copy — Archivo, light and airy */
+  .para {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem; line-height: 1.85;
+    font-weight: 300; color: var(--ink-soft);
+    margin-bottom: 1.3rem; max-width: 560px;
   }
   .para:last-child { margin-bottom: 0; }
   .para em { font-style: italic; }
-  .para.accent { color: var(--blue); }
+  .para.accent {
+    font-family: 'Libre Caslon Text', serif; font-style: italic;
+    font-size: 1.3rem; line-height: 1.4; font-weight: 400;
+    color: var(--blue); margin-top: 0.6rem;
+  }
 
   .services .block-body { display: flex; flex-direction: column; gap: 2.5rem; }
   .svc-name {
     font-family: 'Libre Caslon Text', serif; font-size: 1.5rem;
-    font-weight: 400; color: var(--ink); margin-bottom: 0.6rem;
+    font-weight: 400; color: var(--ink); margin-bottom: 0.7rem;
+    line-height: 1.3;
   }
-  .svc-desc { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); font-weight: 300; max-width: 460px; }
+  .svc-desc { font-family: 'Archivo', sans-serif; font-size: 1rem; line-height: 1.85; color: var(--ink-soft); font-weight: 300; max-width: 560px; }
 
   @media (max-width: 760px) {
     .block-grid { grid-template-columns: 1fr; gap: 1.5rem; }

@@ -23,7 +23,8 @@ import Footer from "../components/Footer.astro";
 <style>
   .hero { padding: 1rem var(--pad-x) 0; }
   .hero-img {
-    width: 100%; aspect-ratio: 16/9;
+    width: 100%; aspect-ratio: 21/9;
+    max-height: 58vh;
     background-image: url('/images/hero.jpg');
     background-size: cover; background-position: center;
     background-color: var(--sand);
@@ -41,6 +42,7 @@ import Footer from "../components/Footer.astro";
   .intro-desc { font-size: 1.05rem; line-height: 1.85; font-weight: 300; color: var(--ink-soft); max-width: 520px; }
 
   @media (max-width: 640px) {
+    .hero-img { max-height: 40vh; }
   }
 
 </style>
